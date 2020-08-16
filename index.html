@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Meme Generator</title>
     <script src="https://kit.fontawesome.com/885c47fbfa.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -27,8 +27,11 @@
         <div class="search-container flex ">
             <div class="search-div flex ">
           <input class="search-input" type="text" placeholder="Enter Search Keyword"><img  
-           onclick="onSearchKetWord()"   src="ICONS/search-icon.png" alt="">
+           onclick="onSearchingWord()"   src="ICONS/search-icon.png" alt="">
           
+            </div>
+            <div class="popular-words">
+
             </div>
         </div>
         <div class="grid-container flex ">
@@ -94,7 +97,7 @@
             <!-- <a onclick="setFillColor()">Save Fill Color</a> -->
             <div class="download-div flex">
                 <a class="download  new-mem" onclick="onCreateNewMeme( )">New Meme</a>
-                <a class="download" onclick="downloadCanvas(this)" download="">Download</a>
+                <a class="download real-download" onclick="downloadCanvas(this)" download="">Download</a>
 
             </div>
         </div>

@@ -1,5 +1,6 @@
 'use strict'
 var gReadyMemes;
+var gKeyWords;
 
 
 var KEY = 'myReadyMemes';
@@ -49,11 +50,42 @@ function _createReadyMemes() {
     }
 }
 
-
-var gKeywords = {
-    'happy': 12,
-    'funny puk': 1
+function _createKeyWords() {
+   gKeyWords = {
+        'funny': 14,
+        'happy': 45,
+        'scarry': 5,
+        'dog': 17,
+        'smile': 14,
+        'love': 4,
+        'stuupid': 10,
+        'evil': 2
+    }
 }
+
+function updateKeyWordsMap(serchedWord) {
+    var isWord = false;
+    for (const key in gKeyWords) {
+        if (key === serchedWord) {
+            gKeyWords.key++;
+            isWord = true;
+        }
+    }
+    if (!isWord) gKeywords.searchedWord = 1;
+}
+
+
+
+
+
+// function createKeyMap(emps) {
+//     return emps.reduce(function (acc, word) {
+//         if (!acc[word.department]) acc[word.department] = 0
+//         acc[emp.department] += 1
+//         return acc
+//     }, {})
+// }
+
 
 function _createImages() {
     gImgs = [{
@@ -144,7 +176,7 @@ function _createImages() {
         {
             id: 17,
             url: 'meme-imgs-square/17.jpg',
-            keywords: ['happy','bitter']
+            keywords: ['happy', 'bitter']
         },
         {
             id: 18,
@@ -219,7 +251,7 @@ function _createImages() {
         {
             id: 33,
             url: 'meme-imgs-square/33.jpg',
-            keywords: ['happy','bitter']
+            keywords: ['happy', 'bitter']
         },
         {
             id: 34,
@@ -273,7 +305,7 @@ var gMemes = [{
 
 
 
-function _createMeme(imgId ) {
+function _createMeme(imgId) {
     var Meme = {
         id: makeId(),
         selectedImgId: imgId,
@@ -339,6 +371,7 @@ function createNewLine() {
         gCurrFont, gCurrStrokeWidth, gCurrTextAlign, gCurrBaseline,
         gCurrX, gCurrY, gCurrLinePosition)
 }
+
 function createLineId() {
     return makeId()
 }
@@ -361,11 +394,11 @@ function addMeme(Memename, author, price, url) {
 
 
 function checkWordInArray(wordsArray, searchedWord) {
-    var x=false;
+    var x = false;
     wordsArray.forEach((word) => {
         if (word.trim().toLowerCase() === searchedWord.trim().toLowerCase()) {
-        x=true;
-        return x
+            x = true;
+            return x
         }
     })
     return x
@@ -373,10 +406,10 @@ function checkWordInArray(wordsArray, searchedWord) {
 
 
 function filteredPicturesArray(searchedWord) {
-    var filteredImgsArray=[];
-      gImgs.forEach((img) => {
-        var arr=img.keywords
-        if(checkWordInArray(arr, searchedWord)) filteredImgsArray.push(img)
+    var filteredImgsArray = [];
+    gImgs.forEach((img) => {
+        var arr = img.keywords
+        if (checkWordInArray(arr, searchedWord)) filteredImgsArray.push(img)
     })
     return filteredImgsArray;
 }

@@ -49,6 +49,8 @@ function init() {
     onCreateNewLine();
     gLinesOrderArray.push(gCurrLine.lineId);
     addEvenetListeners()
+    _createKeyWords() //temp
+    renderPopularWords()  //temp
 }
 
 
@@ -137,7 +139,26 @@ function chooseImage(imgId, imgUrl) {
 
 
 
+///////   RENDER SEARCH WORDS  /////
 
+function renderPopularWords() {
+    const K =0.3
+    var strHTML = ''
+    var counter = 0;
+    for (const key in gKeyWords) {
+        if (counter === 5) {
+            strHTML+=`<div class="word-wrapper"><a >more..</a></div>`
+            break
+        }
+        var fontSize= (12 + ((gKeyWords[key]) *K) +'px')
+        if (gKeyWords.key>=40 ) fontSize = 30;
+        strHTML += `<div class="word-wrapper"><a style="font-size:${fontSize};">${key}</a></div>`
+        //console.log(gKeyWords[key])
+        counter++
+    }
+    console.log(strHTML)
+    document.querySelector('.popular-words').innerHTML=strHTML
+}
 
 //////    DRAG AND DROP  ////////
 
@@ -459,11 +480,11 @@ function onPushLineDown() {
 function addEvenetListeners() {
     var input = document.querySelector(".search-input");
     input.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) onSearchKetWord()
+        if (event.keyCode === 13) onSearchingtWord()
     })
 }
 
-function onSearchKetWord() {
+function onSearchingWord() {
     var searchedWord = document.querySelector('.search-input').value;
     var filteredImgs = filteredPicturesArray(searchedWord);
 

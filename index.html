@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/885c47fbfa.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body onload="init()">
+    <div class="main-header flex ">
+        <div class="header-container flex ">
+            <div class="logo-container flex ">
+                <span class="logo flex " onclick="onNavigateToMemeGen(event)">meme generator</span>
+            </div>
+            <div class="pages flex ">
+                <a href="" class="to-gallery " onclick="onNavigateToGallery(event)">Gallery</a>
+                <span>|</span>
+                <a href="" class="to-about " onclick="onNavigateToMemes(event)">Memes</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="images-container flex none-display ">
+        <div class="search-container flex ">
+            <div class="search-div flex ">
+          <input class="search-input" type="text" placeholder="Enter Search Keyword"><img  
+           onclick="onSearchKetWord()"   src="ICONS/search-icon.png" alt="">
+          
+            </div>
+        </div>
+        <div class="grid-container flex ">
+            <div class="images-grid ">
+
+            </div>
+        </div>
+    </div>
+    <div class="about flex none-display ">
+        About
+    </div>
+    <div class="meme-container flex ">
+        <div class="canvas-container ">
+            <div class="backround-image ">
+                <canvas class=" " id="myCanvas" height="540" width="520"   onmousedown="drag(event)"
+                 onmouseup="drop(event)" ></canvas>
+            </div>
+        </div>
+        <div class="canvas-container2 none-display ">
+            <canvas class="none-display " id="myCanvas2" height="540" width="520"></canvas>
+        </div>
+
+        <div class="control-canvas">
+            <input class="words-input flex" onkeyup="onSetText(event)" placeholder="Insert Text" type="text">
+            <div class="first-three-buttons flex">
+                <button href="" onclick="onSwitchLine()"><img
+                        src="ICONS/up-and-down-opposite-double-arrows-side-by-side.png"></button>
+                <button href="" onclick="onAddLine()"><img src="ICONS/add.png"></button>
+                <button href="" onclick="onRemoveLine()"><img src="ICONS/trash.png"></button>
+                <button href="" onclick="onPushLineUp()"><img src="ICONS/up-arrow.png"></button>
+                <button href="" onclick="onPushLineDown()"><img src="ICONS/down-arrow.png"></button>
+
+            </div>
+            <div class="next-five-buttons flex">
+                <button href="" onclick="onEnlargeFont()"><img src="ICONS/increase font - icon.png"></button>
+                <button href="" onclick="onDownSizeFont()"><img src="ICONS/decrease font - icon.png"></button>
+                <button href="" onclick="onAlignText('right')"><img src="ICONS/align-to-left.png"></button>
+                <button href="" onclick="onAlignText('center')"><img src="ICONS/center-text-alignment.png"></button>
+                <button href="" onclick="onAlignText('left')"><img src="ICONS/align-to-right.png"></button>
+            </div>
+
+            <!-- <input class="shape-color" type="color" id="favcolor" name="favcolor" value="#ff0000"> -->
+            <div class="buttons-and-dropdown flex">
+                <div class="dropdown">
+                    <button class="dropbtn">Font<i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-content">
+                        <a onclick="onSetFont('Impact')">Impact</a>
+                        <a onclick="onSetFont('Verdana')">Verdana</a>
+                        <a onclick="onSetFont('Arial')">Arial</a>
+                        <a onclick="onSetFont('Cambria')">Cambria</a>
+                        <a onclick="onSetFont('Georgia')">Georgia</a>
+                        <a onclick="onSetFont('monospace')">monospace</a>
+                    </div>
+                </div>
+                <label class ="stroke-pallete" for="favcolor2"><img src="ICONS/text stroke.png" alt="" srcset=""></label>
+                <input class="input-stroke-color " type="color" id="favcolor2" name="favcolor2" value="#ff0000" onclick="onSetStrokeColor()" >
+                
+                <label class ="paint-pallete" for="favcolor"><img src="ICONS/paint-board-and-brush.png" alt="" srcset=""></label>
+                <input class="input-color " type="color" id="favcolor" name="favcolor" value="#ff0000" onclick="onSetFillColor()" >
+            </div>
+            <div class="icons"></div>
+            <!-- <a onclick="setFillColor()">Save Fill Color</a> -->
+            <div class="download-div flex">
+                <a class="download  new-mem" onclick="onCreateNewMeme( )">New Meme</a>
+                <a class="download" onclick="downloadCanvas(this)" download="">Download</a>
+
+            </div>
+        </div>
+    </div>
+    <img class="canvas-image" src="meme-imgs-square/10.jpg" alt="" hidden>
+
+    <div class="footer flex ">
+     <div class="flex logo-container-footer">
+         <span class=" footer-logo flex">meme generator</span>
+        </div>
+    </div>
+
+
+  
+
+    <script src="js/utils.js"></script>
+    <script src="js/meme-service.js"></script>
+    <script src="js/meme-storage.js"></script>
+    <script src="js/meme-controller.js"></script>
+</body>
+
+</html>

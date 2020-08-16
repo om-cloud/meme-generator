@@ -209,6 +209,7 @@ canvas {
     flex-direction: column;
     margin-inline-start: 37px;
     height: 540px;
+    min-height: 540px;;
 }
 
 .control-canvas .words-input {

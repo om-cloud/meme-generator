@@ -1,3 +1,5 @@
+////    NOT WORKING YET  /////
+
 
 // on submit call to this function
 function uploadImg(elForm, ev) {

@@ -51,9 +51,20 @@ function init() {
     addEvenetListeners()
     _createKeyWords() //temp
     renderPopularWords()  //temp
+    checkScreensize('.mycanvas2')
 }
-
-
+function checkScreensize(canvas){
+    if(screen.width < 900 && screen.width > 700){
+        document.querySelector(canvas).height =400;
+        document.querySelector(canvas).width =400;
+    }else if(screen.width <= 700 && screen.width > 540){
+        document.querySelector(canvas).height =350;
+        document.querySelector(canvas).width =350;
+    }else if(screen.width<= 540){
+        document.querySelector(canvas).height =400;
+        document.querySelector(canvas).width =400;
+    }
+}
 
 
 function inializeNewMeme() {
@@ -541,6 +552,7 @@ function onCreateImageCanvas() {
     document.querySelector('#myCanvas2').classList.remove('none-display');
     gCanvas2 = document.getElementById('myCanvas2');
     gCtx = gCanvas2.getContext('2d');
+    
     drawImg();
     drawMeme();
 }

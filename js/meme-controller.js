@@ -30,7 +30,7 @@ var gCurrLinePosition;
 var gCurrImgId = 10;
 var gCurrImgUrl = 'meme-imgs-square/10.jpg';
 var gDraggedLineId;
-var gIsDrag=false;
+var gIsDrag = false;
 
 
 
@@ -146,43 +146,40 @@ function chooseImage(imgId, imgUrl) {
 function drag(event) {
     var x = event.pageX - gCanvas.offsetLeft;
     var y = event.pageY - gCanvas.offsetTop;
-    checkMouseDownOnLine(x,y)
+    checkMouseDownOnLine(x, y)
     if (gIsDrag) {
-        console.log(x,y)
+        console.log(x, y)
         gCanvas.addEventListener('mousemove', onMouseMove);
     }
 }
 
-function checkMouseDownOnLine(x,y){
-    gMeme.lines.forEach((line)=>{
-    if((y <= line.y) && ((line.y - line.fontSize) <= y)){
-        gIsDrag=true;
-        gDraggedLineId=line.lineId
-        console.log(gIsDrag, gDraggedLineId )
-        return
-    }
-})
+function checkMouseDownOnLine(x, y) {
+    gMeme.lines.forEach((line) => {
+        var fontsize= parseInt(line.fontSize)
+        if ((y <= line.y) && ((line.y - fontsize) <= y)) {
+            gIsDrag = true;
+            gDraggedLineId = line.lineId
+            console.log(gIsDrag, gDraggedLineId)
+            return
+        }
+    })
 }
 
-function onMouseMove(event){
+function onMouseMove(event) {
     var x = event.pageX - gCanvas.offsetLeft;
     var y = event.pageY - gCanvas.offsetTop;
-    var idx= findLineIdxById(gDraggedLineId);
-    gCurrLine=gMeme.lines[idx];
-    gCurrY=y;
-    gCurrX=x
+    var idx = findLineIdxById(gDraggedLineId);
+    gMeme.lines[idx].y=y;
+    gMeme.lines[idx].x=x;
     clearCanvas();
     drawMeme();
-    onRenderCanvasAndUpdateModel()
 }
 
 
-function drop(event){
-gIsDrag=false;
-var x = event.pageX - gCanvas.offsetLeft;
-var y = event.pageY - gCanvas.offsetTop;
-gCanvas.removeEventListener('mousemove', onMouseMove);
-onRenderCanvasAndUpdateModel()
+function drop(event) {
+    gCanvas.removeEventListener('mousemove', onMouseMove);
+    gIsDrag = false;
+    gDraggedLineId=undefined;
 }
 
 /////    RENDERING   AND  UPDATING  MEME MODEL   //////
@@ -541,56 +538,27 @@ function onCancelImageCanvas() {
 }
 
 
-//const textMetrics = gCtx.measureText(gCurrText);
-
-//let text = gCtx.measureText(gCurrText);
-//const textMetrics = gCtx.measureText(text);
-//console.log(Math.abs(textMetrics.actualBoundingBoxLeft) +
-//Math.abs(textMetrics.actualBoundingBoxRight));
-//console.log(text.width);  
-//console.log(textMetrics.width)
-//console.log(textMetrics.actualBoundingBoxAscent)  // distance  from the top of the canvas ?
-// gCtx.textBaseline  will present it
-//console.log(textMetrics.actualBoundingBoxLeft)
-//gCtx.textAlign   will present it
-
-// function drawTextForNewLine(){
-//     var x=determineLinePosition(gLineHeight).lineX;
-//     var y=determineLinePosition(gLineHeight).lineY;
-//     //gCtx.beginPath();
-//     gCtx.lineWidth = '2';
-//     gCtx.strokeStyle = 'black';
-//     gCtx.fillStyle = 'white';
-//     gCtx.font = '40 Impact';
-//     gCtx.textAlign = 'center';
-//     gCtx.fillText('', x, y);
-//     gCtx.strokeText('', x, y);
-// }
+//////  UPLOAD  /  SHARE   /////////
 
 
-// function drawText(text, x, y) {
-//     gCtx.lineWidth =gCurrStrokeWidth;
-//     gCtx.strokeStyle = gCurrStrokeColor;
-//     gCtx.fillStyle = gCurrFillColor;
-//     gCtx.font = gCurrFontSize + 'px ' +gCurrFont;
-//     gCtx.textAlign = gCurrAlign;
-//     gCtx.fillText(text, x, y);
-//     gCtx.strokeText(text, x, y);
-// }
+function downloadImg(elLink) {
+    var imgContent = gCanvas.toDataURL('image/jpeg');
+    elLink.href = imgContent
+}
 
+// The next 2 functions handle IMAGE UPLOADING to img tag from file system: 
+function onImgInput(ev) {
+    loadImageFromInput(ev, renderCanvas)
+}
 
-// gCanvas2 = document.getElementById('myCanvas2');
-// gCtx2 = gCanvas2.getContext('2d');
-//clearCanvas();
-//drawRect(250, 30);
-//drawText('HAPPY!', 225, 225);
-//window.addEventListener('resize', function () {
-//gCanvas.width = window.innerWidth;
-//gCanvas.height = window.innerHeight;
-//resizeCanvas()
-//})
-//PART 12 
-//click on canvas
+function loadImageFromInput(ev, onImageReady) {
+    document.querySelector('.share-container').innerHTML = ''
+    var reader = new FileReader();
 
-//PART 13 - Tainted canvas when download
-//drawImg2();
+    reader.onload = function (event) {
+        var img = new Image();
+        img.onload = onImageReady.bind(null, img)
+        img.src = event.target.result;
+    }
+    reader.readAsDataURL(ev.target.files[0]);
+}

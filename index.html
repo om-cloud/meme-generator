@@ -106,6 +106,17 @@
          <span class=" footer-logo flex">meme generator</span>
         </div>
     </div>
+   <div class="upload-container  ">
+    <input type="file" class="file-input btn" name="image" onchange="onImgInput(event)" />
+
+    <form action="" method="POST" enctype="multipart/form-data" onsubmit="uploadImg(this, event)">
+      <input name="img" id="imgData" type="hidden" />
+      <button class="btn" type="submit">Publish</button>
+      <a href="#" class="btn" onclick="downloadImg(this)" download="my-img.jpg">Download as jpg</a>
+      <div class="share-container"></div>
+    </form>
+</div>
+
 
 
   
@@ -113,6 +124,7 @@
     <script src="js/utils.js"></script>
     <script src="js/meme-service.js"></script>
     <script src="js/meme-storage.js"></script>
+    <script src="js/meme-upload-service.js"></script>
     <script src="js/meme-controller.js"></script>
 </body>
 

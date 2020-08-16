@@ -38,6 +38,10 @@ function _createReadyMemes() {
             {
                 id: 6,
                 url: 'ready-memes/7.jpg'
+            },
+            {
+                id: 7,
+                url: 'ready-memes/8.jpg'
             }
         ]
     } else {
@@ -140,7 +144,87 @@ function _createImages() {
         {
             id: 17,
             url: 'meme-imgs-square/17.jpg',
+            keywords: ['happy','bitter']
+        },
+        {
+            id: 18,
+            url: 'meme-imgs-square/18.jpg',
+            keywords: ['happy', 'ugly', 'funny']
+        },
+        {
+            id: 19,
+            url: 'meme-imgs-square/19.jpg',
+            keywords: ['happy', 'sweet']
+        },
+        {
+            id: 21,
+            url: 'meme-imgs-square/21.jpg',
+            keywords: ['happy', 'power', 'ugly']
+        },
+        {
+            id: 22,
+            url: 'meme-imgs-square/22.jpg',
+            keywords: ['happy', 'stupid', 'funny']
+        },
+        {
+            id: 23,
+            url: 'meme-imgs-square/23.jpg',
+            keywords: ['happy', 'scarry']
+        },
+        {
+            id: 24,
+            url: 'meme-imgs-square/24.jpg',
+            keywords: ['happy', 'funny']
+        },
+        {
+            id: 25,
+            url: 'meme-imgs-square/25.jpg',
+            keywords: ['happy', 'ugly', 'uunny']
+        },
+        {
+            id: 26,
+            url: 'meme-imgs-square/26.jpg',
             keywords: ['happy']
+        },
+        {
+            id: 27,
+            url: 'meme-imgs-square/27.jpg',
+            keywords: ['happy', 'cute']
+        },
+        {
+            id: 28,
+            url: 'meme-imgs-square/28.jpg',
+            keywords: ['happy', 'power', 'ugly']
+        },
+        {
+            id: 29,
+            url: 'meme-imgs-square/29.jpg',
+            keywords: ['happy', 'stupid', 'funny']
+        },
+        {
+            id: 30,
+            url: 'meme-imgs-square/30.jpg',
+            keywords: ['happy', 'scarry']
+        },
+        {
+            id: 31,
+            url: 'meme-imgs-square/31.jpg',
+            keywords: ['happy', 'funny']
+        },
+        {
+            id: 32,
+            url: 'meme-imgs-square/32.jpg',
+            keywords: ['happy', 'ugly', 'uunny']
+        },
+        {
+            id: 33,
+            url: 'meme-imgs-square/33.jpg',
+            keywords: ['happy','bitter']
+        },
+        {
+            id: 34,
+            url: 'meme-imgs-square/34.jpg',
+            keywords: ['happy', 'ugly', 'funny']
         }
     ];
 

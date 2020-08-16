@@ -165,7 +165,7 @@ canvas {
 }
 
 .backround-image {
-    background-image: url('../meme-imgs-square/10.jpg');
+    background-image: url('../meme-imgs-square/19.jpg');
     background-repeat: no-repeat;
     background-size: 100% 100%;
 }
@@ -431,7 +431,7 @@ a {
 
 .footer{
     position:relative;
-    top:200px;
+    top:120px;
     height:150px;
     width:100%;
     background-color: #ff7f00;

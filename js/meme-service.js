@@ -58,7 +58,7 @@ var gKeywords = {
 function _createImages() {
     gImgs = [{
             id: 0,
-            url: 'meme-imgs-square/18.jpg',
+            url: 'meme-imgs-square/0.jpg',
             keywords: ['love', 'funny', 'unconscious']
         },
         {

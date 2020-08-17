@@ -179,8 +179,9 @@ function renderPopularWords() {
         }
         var fontSize= (12 + ((gKeyWords[key]) *K) +'px')
         if (gKeyWords.key>=40 ) fontSize = 30;
-        strHTML += `<div class="word-wrapper"><a style="font-size:${fontSize};">${key}</a></div>`
-        //console.log(gKeyWords[key])
+        strHTML += `<div class="word-wrapper"><a onclick="onSearchingWord2('${key}')"
+        style="font-size:${fontSize};">${key}</a></div>`
+        console.log(gKeyWords[key])
         counter++
     }
     //console.log(strHTML)
@@ -507,7 +508,7 @@ function onPushLineDown() {
 function addEvenetListeners() {
     var input = document.querySelector(".search-input");
     input.addEventListener("keyup", function (event) {
-        if (event.keyCode === 13) onSearchingtWord()
+        if (event.keyCode === 13) onSearchingWord()
     })
 }
 
@@ -516,6 +517,15 @@ function onSearchingWord() {
     var filteredImgs = filteredPicturesArray(searchedWord);
     renderImages(filteredImgs)
     updateKeyWordsMap(searchedWord);
+    renderPopularWords();
+}
+function onSearchingWord2(word) {
+    console.log(word)
+    document.querySelector('.search-input').value=word;
+    var word = document.querySelector('.search-input').value;
+    var filteredImgs = filteredPicturesArray(word);
+    renderImages(filteredImgs)
+    updateKeyWordsMap(word);
     renderPopularWords();
 }
 

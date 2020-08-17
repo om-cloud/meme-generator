@@ -101,12 +101,12 @@ function _createImages() {
         {
             id: 2,
             url: 'meme-imgs-square/2.jpg',
-            keywords: ['happy', 'Cute']
+            keywords: ['happy', 'Cute','dog']
         },
         {
             id: 3,
             url: 'meme-imgs-square/3.jpg',
-            keywords: ['happy', 'cute']
+            keywords: ['happy', 'cute','smile']
         },
         {
             id: 4,
@@ -136,7 +136,7 @@ function _createImages() {
         {
             id: 9,
             url: 'meme-imgs-square/9.jpg',
-            keywords: ['happy', 'ugly', 'uunny']
+            keywords: ['happy', 'ugly', 'funny']
         },
         {
             id: 10,
@@ -146,7 +146,7 @@ function _createImages() {
         {
             id: 11,
             url: 'meme-imgs-square/11.jpg',
-            keywords: ['happy', 'cute']
+            keywords: ['happy', 'cute','smile']
         },
         {
             id: 12,

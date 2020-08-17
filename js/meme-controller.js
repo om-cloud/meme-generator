@@ -37,7 +37,6 @@ var gIsDrag = false;
 function init() {
     gCanvas = document.getElementById('myCanvas');
     gCtx = gCanvas.getContext('2d');
-    checkScreensize()
     createImages();
     createReadyMemes();
     inializeNewMeme();
@@ -49,6 +48,7 @@ function init() {
     assignLineCoordiantes();
     onCreateNewLine();
     gLinesOrderArray.push(gCurrLine.lineId);
+    checkScreensize()
     addEvenetListeners()
     _createKeyWords() //temp
     renderPopularWords()  //temp
@@ -90,6 +90,7 @@ function checkScreensize(){
         elBackroundImage.style.width="300px"
         elBackroundImage.style.height="300px"
     }
+    drawMeme()
 }
 
 

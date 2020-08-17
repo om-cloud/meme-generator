@@ -57,29 +57,38 @@ function init() {
 
 
 function checkScreensize(){
-    var canvases = document.querySelectorAll('canvas');
+    var elCanvases = document.querySelectorAll('canvas');
+    var elBackroundImage = document.querySelector('.backround-image')
     console.log('resize')
     if(screen.width >= 925){
-        canvases[0].width =520;
-        canvases[1].height =540;
-        canvases[1].width =520;
-        canvases[0].height =540;
+        elBackroundImage.style.width="520px"
+        elBackroundImage.style.height="540px"
+        elCanvases[0].width =520;
+        elCanvases[1].height =540;
+        elCanvases[1].width =520;
+        elCanvases[0].height =540;
     }
     else if((screen.width < 925 && screen.width > 750)||(screen.width<= 585 && screen.width > 450)){
-       canvases[0].width =400;
-        canvases[1].height =400;
-        canvases[1].width =400;
-        canvases[0].height =400;
+       elCanvases[0].width =400;
+        elCanvases[1].height =400;
+        elCanvases[1].width =400;
+        elCanvases[0].height =400;
+        elBackroundImage.style.width="400px"
+        elBackroundImage.style.height="400px"
     }else if((screen.width <= 750 && screen.width > 700) ||(screen.width< 450)){
-        canvases[0].width =350;
-        canvases[1].height =350;
-        canvases[1].width =350;
-        canvases[0].height =350;
+        elCanvases[0].width =350;
+        elCanvases[1].height =350;
+        elCanvases[1].width =350;
+        elCanvases[0].height =350;
+        elBackroundImage.style.width="350px"
+        elBackroundImage.style.height="350px"
     }else if(screen.width <= 700 && screen.width > 585){
-        canvases[0].width =300;
-        canvases[1].height =300;
-        canvases[1].width =300;
-        canvases[0].height =300;
+        elCanvases[0].width =300;
+        elCanvases[1].height =300;
+        elCanvases[1].width =300;
+        elCanvases[0].height =300;
+        elBackroundImage.style.width="300px"
+        elBackroundImage.style.height="300px"
     }
 }
 
@@ -157,7 +166,7 @@ function chooseImage(imgId, imgUrl) {
     gCurrImgUrl = imgUrl;
     console.log(imgUrl)
     document.querySelector('.canvas-image').src = imgUrl;
-    document.querySelector('.backround-image').style.backgroundImage = `url('${imgUrl}')`
+    document.querySelector('.backround-image').style.backgroundImage = `url("../${imgUrl}")`
     document.querySelector('.meme-container').classList.remove('none-display');
     document.querySelector('.images-container').classList.add('none-display');
     document.querySelector('.about').classList.add('none-display');

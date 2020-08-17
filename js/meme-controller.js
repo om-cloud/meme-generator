@@ -166,7 +166,7 @@ function chooseImage(imgId, imgUrl) {
     gCurrImgUrl = imgUrl;
     console.log(imgUrl)
     document.querySelector('.canvas-image').src = imgUrl;
-    document.querySelector('.backround-image').style.backgroundImage = `url("../${imgUrl}")`
+    document.querySelector('.backround-image').style.backgroundImage = `url("${imgUrl}")`
     document.querySelector('.meme-container').classList.remove('none-display');
     document.querySelector('.images-container').classList.add('none-display');
     document.querySelector('.about').classList.add('none-display');

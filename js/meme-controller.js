@@ -162,6 +162,7 @@ function chooseImage(imgId, imgUrl) {
     document.querySelector('.images-container').classList.add('none-display');
     document.querySelector('.about').classList.add('none-display');
     gCurrText = document.querySelector('.words-input').value = '';
+   // debugger
     init();
 }
 

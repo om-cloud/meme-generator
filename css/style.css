@@ -617,9 +617,6 @@ a {
         gap: 1rem;
         margin-inline-start: 2.5rem;
     }
-    .real-download {
-        margin-inline-end: 0.5625rem;
-       }
        .real-download {
         margin-inline-end: 8rem;
        }
@@ -638,7 +635,14 @@ a {
 }
 
 @media(max-width: 585px) {
-
+.meme-container{
+    /* justify-content: center; */
+    align-items: center; 
+    align-content: center;
+}
+    .control-canvas{
+        width:340px;
+    }
     html {
         font-size: 14px;
     }
@@ -685,8 +689,8 @@ a {
 
     .canvas-container {
         margin-top: 5.75rem;
-        margin-inline-start: auto;
-        margin-inline-end: auto;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
         width: fit-content;
     }
 
@@ -699,8 +703,8 @@ a {
 
     .control-canvas {
         margin-top: 2rem;
-        margin-inline-start: 13%;
-        margin-inline-start: 13%;
+        /* margin-inline-start: 13%;
+        margin-inline-start: 13%; */
     }
 
     .images-grid {
@@ -722,7 +726,9 @@ a {
 }
 
 @media(max-width: 450px) {
-    
+    .control-canvas{
+        width:300px;
+    }
     /* .control-canvas {
         margin-inline-start: 16%;
         margin-inline-start: 16%;
@@ -730,8 +736,8 @@ a {
     .meme-container{
         margin: 0 auto;
         padding: 0 ;
-        margin-inline-start: auto;
-        margin-inline-end: auto;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
 
     html {
@@ -743,14 +749,14 @@ a {
     .canvas-container{
         margin-inline-end: 0;
         padding: 0 ;
-        margin-inline-start: auto;
-        margin-inline-end: auto;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     }
     .canvas-container2, .control-canvas{
         margin-inline-end: 0;
         padding: 0 ;
-        margin-inline-start: auto;
-        margin-inline-end: auto;
+        margin-inline-start: 0;
+        margin-inline-end: 0;
     } 
 
 }

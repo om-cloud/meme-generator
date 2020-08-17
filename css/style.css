@@ -9,6 +9,7 @@
 html {
     line-height: 1rem;
     color: #606060;
+    font-size:16px;
 }
 
 body {
@@ -604,6 +605,12 @@ a {
 }
 
 @media(max-width:800px) {
+    html {
+        font-size: 12px;
+    }
+    .control-canvas .words-input {
+        max-width:280px;
+    }
     .popular-words {
 
         grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
@@ -613,13 +620,30 @@ a {
     .real-download {
         margin-inline-end: 0.5625rem;
        }
+       .real-download {
+        margin-inline-end: 8rem;
+       }
 
 }
+@media(max-width: 700px){
+    html {
+        font-size: 10px;
+    }
+    .control-canvas .words-input {
+        max-width:230px;
+    }
+    .real-download {
+        margin-inline-end: 10.3rem;
+       }
+}
 
-@media(max-width: 520px) {
+@media(max-width: 585px) {
 
     html {
         font-size: 14px;
+    }
+    .meme-container{
+        margin:0 auto;
     }
   .control-canvas{
       margin:0 auto;
@@ -633,7 +657,7 @@ a {
     }
     .real-download {
         margin-inline-start: 0.5625rem;
-         margin-inline-end: 3.925rem; 
+         /* margin-inline-end: 3.925rem;  */
     }
     
     .search-input {
@@ -661,8 +685,8 @@ a {
 
     .canvas-container {
         margin-top: 5.75rem;
-        margin-inline-start: 0;
-        margin-inline-end: 20px;
+        margin-inline-start: auto;
+        margin-inline-end: auto;
         width: fit-content;
     }
 
@@ -689,12 +713,27 @@ a {
         height: 100%;
 
     }
+    .control-canvas .words-input {
+        max-width:328px;
+    }
+    .meme-container{
+        margin: 0 auto;
+    }
 }
 
 @media(max-width: 450px) {
-    .control-canvas {
+    /* .control-canvas {
         margin-inline-start: 16%;
         margin-inline-start: 16%;
+    } */
+    .meme-container{
+        margin: 0 auto;
+    }
+    html {
+        font-size: 12px;
+    }
+    .control-canvas .words-input {
+        max-width:280px;
     }
 }
 

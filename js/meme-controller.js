@@ -37,6 +37,7 @@ var gIsDrag = false;
 function init() {
     gCanvas = document.getElementById('myCanvas');
     gCtx = gCanvas.getContext('2d');
+    checkScreensize()
     createImages();
     createReadyMemes();
     inializeNewMeme();
@@ -51,18 +52,33 @@ function init() {
     addEvenetListeners()
     _createKeyWords() //temp
     renderPopularWords()  //temp
-    checkScreensize('.mycanvas2')
 }
-function checkScreensize(canvas){
-    if(screen.width < 900 && screen.width > 700){
-        document.querySelector(canvas).height =400;
-        document.querySelector(canvas).width =400;
-    }else if(screen.width <= 700 && screen.width > 540){
-        document.querySelector(canvas).height =350;
-        document.querySelector(canvas).width =350;
-    }else if(screen.width<= 540){
-        document.querySelector(canvas).height =400;
-        document.querySelector(canvas).width =400;
+
+
+
+function checkScreensize(){
+    var canvases = document.querySelectorAll('canvas');
+    if(screen.width >= 925){
+        canvases[0].width =520;
+        canvases[1].height =540;
+        canvases[1].width =520;
+        canvases[0].height =540;
+    }
+    else if((screen.width < 925 && screen.width > 750)||(screen.width<= 585 && screen.width> 450)){
+       canvases[0].width =400;
+        canvases[1].height =400;
+        canvases[1].width =400;
+        canvases[0].height =400;
+    }else if((screen.width <= 750 && screen.width > 700) ||(screen.width< 450)){
+        canvases[0].width =350;
+        canvases[1].height =350;
+        canvases[1].width =350;
+        canvases[0].height =350;
+    }else if(screen.width <= 700 && screen.width > 600){
+        canvases[0].width =300;
+        canvases[1].height =300;
+        canvases[1].width =300;
+        canvases[0].height =300;
     }
 }
 
@@ -167,7 +183,7 @@ function renderPopularWords() {
         //console.log(gKeyWords[key])
         counter++
     }
-    console.log(strHTML)
+    //console.log(strHTML)
     document.querySelector('.popular-words').innerHTML=strHTML
 }
 
@@ -498,8 +514,9 @@ function addEvenetListeners() {
 function onSearchingWord() {
     var searchedWord = document.querySelector('.search-input').value;
     var filteredImgs = filteredPicturesArray(searchedWord);
-
     renderImages(filteredImgs)
+    updateKeyWordsMap(searchedWord);
+    renderPopularWords();
 }
 
 //////    DOWNLOAD   -  SHARE - NEW MEM  //////
@@ -535,8 +552,9 @@ function onCreateNewMeme() {
 }
 
 function drawImg() {
+  var elCanvas= document.querySelector('canvas')
     const elImg = document.querySelector('.canvas-image');
-    gCtx.drawImage(elImg, 0, 0, gCanvas2.width, gCanvas2.height);
+    gCtx.drawImage(elImg, 0, 0, elCanvas.width, elCanvas.height);
 }
 
 
@@ -552,7 +570,7 @@ function onCreateImageCanvas() {
     document.querySelector('#myCanvas2').classList.remove('none-display');
     gCanvas2 = document.getElementById('myCanvas2');
     gCtx = gCanvas2.getContext('2d');
-    
+    checkScreensize()
     drawImg();
     drawMeme();
 }

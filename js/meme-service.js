@@ -67,11 +67,11 @@ function updateKeyWordsMap(serchedWord) {
     var isWord = false;
     for (const key in gKeyWords) {
         if (key === serchedWord) {
-            gKeyWords.key++;
+            gKeyWords[key]+=1;
             isWord = true;
         }
     }
-    if (!isWord) gKeywords.searchedWord = 1;
+    if (!isWord) gKeyWords.searchedWord = 1;
 }
 
 

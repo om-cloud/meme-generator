@@ -58,13 +58,14 @@ function init() {
 
 function checkScreensize(){
     var canvases = document.querySelectorAll('canvas');
+    console.log('resize')
     if(screen.width >= 925){
         canvases[0].width =520;
         canvases[1].height =540;
         canvases[1].width =520;
         canvases[0].height =540;
     }
-    else if((screen.width < 925 && screen.width > 750)||(screen.width<= 585 && screen.width> 450)){
+    else if((screen.width < 925 && screen.width > 750)||(screen.width<= 585 && screen.width > 450)){
        canvases[0].width =400;
         canvases[1].height =400;
         canvases[1].width =400;
@@ -74,7 +75,7 @@ function checkScreensize(){
         canvases[1].height =350;
         canvases[1].width =350;
         canvases[0].height =350;
-    }else if(screen.width <= 700 && screen.width > 600){
+    }else if(screen.width <= 700 && screen.width > 585){
         canvases[0].width =300;
         canvases[1].height =300;
         canvases[1].width =300;
